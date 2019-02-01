@@ -30,7 +30,7 @@ const askQuestions = () => {
 
 const getTemp = async (zip) => {
 	try {
-		const response = await got('https://samples.openweathermap.org/data/2.5/weather?zip='+zip+',us&appid=20138f1ff6940565e65b106fbfd2498');
+		const response = await got('https://api.openweathermap.org/data/2.5/weather?zip='+zip+',us&appid=d800995b290947ec055fc167776c2447');
 		console.log(response.body);
 		//=> '<!doctype html> ...'
 	} catch (error) {
@@ -48,6 +48,7 @@ const run = async () => {
   // make the request
   getTemp(ZIPCODE);
   // show temp
+
 };
 
 run();
