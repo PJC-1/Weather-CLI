@@ -9,7 +9,7 @@ const init = () => {
   console.log(
     chalk.green(
       figlet.textSync("weather cli", {
-        font: "Ghost",
+        font: "Standard",
         horizontalLayout: "default",
         verticalLayout: "default"
       })
@@ -34,10 +34,8 @@ const getTemp = async (zip) => {
     const x = JSON.parse(response.body);
     console.log(x.main.temp + ' °C');
 
-		//=> '<!doctype html> ...'
 	} catch (error) {
 		console.log(error.response.body);
-		//=> 'Internal server error ...'
 	}
 };
 
