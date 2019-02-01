@@ -1,0 +1,22 @@
+{
+  "name": "weather_cli_app",
+  "version": "1.0.0",
+  "description": "OpenWeather CLI app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/PJC1/weather_cli_app.git"
+  },
+  "author": "Phill Cheng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/PJC1/weather_cli_app/issues"
+  },
+  "homepage": "https://gitlab.com/PJC1/weather_cli_app#README",
+  "dependencies": {
+    "got": "^9.6.0"
+  }
+}
