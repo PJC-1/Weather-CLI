@@ -28,9 +28,9 @@ const askQuestions = () => {
   return inquirer.prompt(questions);
 };
 
-const getTemp = async (zip) => {
+const getTemp = async (zip, countryCode) => {
 	try {
-		const response = await got('https://api.openweathermap.org/data/2.5/weather?zip='+zip+',us&units=metric&appid=d800995b290947ec055fc167776c2447');
+		const response = await got('https://api.openweathermap.org/data/2.5/weather?zip='+zip+','+countryCode+'&units=metric&appid=d800995b290947ec055fc167776c2447');
     const x = JSON.parse(response.body);
     console.log(x.main.temp + ' °C');
 
@@ -44,10 +44,15 @@ const run = async () => {
   init();
   // ask question
   const answers = await askQuestions();
-  const { ZIPCODE } = answers;
+  // format the user input
+  const answersArr = answers.ZIPCODE.split(',');
+  // cache the zipcode and countrycode
+  const ZIPCODE = answersArr[0];
+  const COUNTRYCODE = answersArr[1];
+  // const { ZIPCODE } = answers;
   // make the request
-  getTemp(ZIPCODE);
-  // show temp
+  getTemp(ZIPCODE, COUNTRYCODE);
+
 
 };
 
