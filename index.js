@@ -22,7 +22,7 @@ const askQuestions = () => {
     {
       name: "ZIPCODE",
       type: "input",
-      message: "What is the zipcode?"
+      message: "Please enter zipcode and country code separated by a coma..."
     }
   ];
   return inquirer.prompt(questions);
