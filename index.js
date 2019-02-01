@@ -30,8 +30,10 @@ const askQuestions = () => {
 
 const getTemp = async (zip) => {
 	try {
-		const response = await got('https://api.openweathermap.org/data/2.5/weather?zip='+zip+',us&appid=d800995b290947ec055fc167776c2447');
-		console.log(response.body);
+		const response = await got('https://api.openweathermap.org/data/2.5/weather?zip='+zip+',us&units=metric&appid=d800995b290947ec055fc167776c2447');
+    const x = JSON.parse(response.body);
+    console.log(x.main.temp + ' °C');
+
 		//=> '<!doctype html> ...'
 	} catch (error) {
 		console.log(error.response.body);
@@ -42,7 +44,7 @@ const getTemp = async (zip) => {
 const run = async () => {
   // show script introduction
   init();
-  // ask questions
+  // ask question
   const answers = await askQuestions();
   const { ZIPCODE } = answers;
   // make the request
