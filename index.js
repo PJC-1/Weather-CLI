@@ -28,6 +28,17 @@ const askQuestions = () => {
   return inquirer.prompt(questions);
 };
 
+const getTemp = async (zip) => {
+	try {
+		const response = await got('https://samples.openweathermap.org/data/2.5/weather?zip='+zip+',us&appid=20138f1ff6940565e65b106fbfd2498');
+		console.log(response.body);
+		//=> '<!doctype html> ...'
+	} catch (error) {
+		console.log(error.response.body);
+		//=> 'Internal server error ...'
+	}
+};
+
 const run = async () => {
   // show script introduction
   init();
@@ -35,6 +46,7 @@ const run = async () => {
   const answers = await askQuestions();
   const { ZIPCODE } = answers;
   // make the request
+  getTemp(ZIPCODE);
   // show temp
 };
 
